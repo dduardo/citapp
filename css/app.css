@@ -1,0 +1,53 @@
+h3 {
+    font-size: 16px;
+    margin: 30px 0;
+}
+.center-content {
+    float: none;
+    margin: 0 auto;
+}
+
+.logo {
+    padding: 40px 0;
+    float: none;
+    margin: 0 auto;
+}
+.logo img {
+    display: inline-block;
+}
+.navbar {
+    margin-top: 30px;
+}
+.navbar .navbar-logo {
+    padding: 15px 30px 15px 0;
+    width: 80px;
+    border-right: 1px solid #e7e7e7;
+    margin-right: 10px;
+}
+.table-list {
+    margin: 30px 0;
+}
+
+.table thead tr {
+    background: #5e5e5e;
+}
+.table thead tr th {
+    color: #fff;
+}
+.table tbody tr:nth-child(odd) {
+    background-color: rgba(105,105,105,0.02);
+}
+.table tbody tr td {
+    font-size: 14px;
+}
+
+form .form-control.ng-dirty.ng-invalid {
+    border-color: #f05050;
+}
+
+.separator {
+    margin: 40px 0;
+    clear: both;
+    display: block;
+}
+

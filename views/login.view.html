@@ -1,0 +1,29 @@
+<div class="col-sm-2 text-center logo">
+    <img src="img/cit-logo.png" alt="CI&T Eventos" class="img-responsive" />
+</div>
+
+<div class="col-sm-4 center-content">
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">Informe email e senha</div>
+        <div class="panel-body">
+            <p class="text-danger" ng-if="error.message">{{error.message}}</p>
+            <p class="text-danger" ng-show="form.password.$error.minlength" >Sua senha deve ter no mínimo 6 caracteres.</p>
+            <form name="form" role="form">
+                <div class="form-login">
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email CI&T" ng-model="login.email" name="login" ng-blur="isValid(login.email)" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Senha" ng-model="login.password" ng-minlength="6" name="password" required />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-default col-sm-12" ng-disabled="form.$invalid" ng-click="salvar(login)">
+                            <img src="img/ajax-loader.png" alt="loader" ng-show="loading" />
+                            ENTRAR
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

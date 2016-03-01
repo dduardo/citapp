@@ -1,0 +1,45 @@
+<h3 ng-if="!edit">Novo evento CI&T</h3>
+<h3 ng-if="edit">Editar evento CI&T</h3>
+
+<div class="col-sm-6 center-content">
+    <div class="panel panel-default">
+        <div class="panel-heading" ng-show="!edit">Cadastrar novo evento</div>
+        <div class="panel-heading" ng-show="edit">Editar novo evento</div>
+        <div class="panel-body">
+            <form name="eventos">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" class="form-control" required ng-model="evento.title">
+                </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <input type="text" class="form-control" required ng-model="evento.description">
+                </div>
+                <div class="form-group">
+                    <label>Local do evento</label>
+                    <input type="text" class="form-control" required ng-model="evento.locale">
+                </div>
+                <div class="form-group">
+                    <label>Data início</label>
+                    <input type="text" class="form-control" required ng-model="evento.start_date" ui-mask="99/99/9999" model-view-value="true">
+                </div>
+                <div class="form-group">
+                    <label>Hora início</label>
+                    <input type="text" class="form-control" required ng-model="evento.start_time" ui-mask="99:99:99" model-view-value="true">
+                </div>
+                <div class="form-group">
+                    <label>Data término</label>
+                    <input type="text" class="form-control" required ng-model="evento.end_date" ui-mask="99/99/9999" model-view-value="true">
+                </div>
+                <div class="form-group">
+                    <label>Hora término</label>
+                    <input type="text" class="form-control" required ng-model="evento.end_time" ui-mask="99:99:99" model-view-value="true">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary col-sm-12" ng-click="cadastrarEventos(evento)" ng-show="!edit">Cadastrar evento</button>
+                    <button class="btn btn-primary col-sm-12" ng-click="editarEventos(evento)" ng-show="edit">Editar evento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

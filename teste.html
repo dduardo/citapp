@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html ng-app="CitEventos">
+<head>
+    <meta charset="UTF-8">
+    <title>CIT Eventos</title>
+
+    <!--CSS-->
+    <link type="text/css" rel="stylesheet" href="css/app.css">
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link type="text/css" rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+
+    <!--lib angular-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!--plugins-->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!--importando arquivos-->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/eventos/listar.controller.js"></script>
+    <script src="js/controllers/login.controller.js"></script>
+
+    <script>
+        app.controller('MainController', ['$scope', '$http', function($scope, $http){
+
+            $scope.getContacts = function() {
+                $scope.contacts = "";
+                $http.get('https://demo8443940.mockable.io/exercicio1').then(function(response){
+                    $scope.contacts = response.data;
+                }).catch(function(error){
+                    console.log(error);
+                });
+            };
+
+//            $scope.change = function(obj){
+//                $scope.url = "";
+//                if($scope.obj === 'male'){
+//                    url = 'img/Boss.png';
+//                }else{
+//                    url = 'img/FBoss.png';
+//                }
+//                return url;
+//            };
+
+        }]);
+    </script>
+</head>
+
+<!-- ok isActive =  Se o status foi true exibir um botão verde com o texto Ativo, se não um botão vermelho com o texto inativo.-->
+<!-- ok age-->
+<!-- ok name-->
+<!-- ok gender = Se for masculino, inserir um placeholder masculino, caso contrário, um placeholder feminino-->
+<!-- ok phone-->
+<!-- ok address-->
+<!-- ok registered = exibir a data formatada DD/MM/AAAA (usar filter date do angular para formatar a data)-->
+<!-- ok friends = exibir o nome dos amigos-->
+
+
+
+<body ng-controller="MainController">
+
+<div class="contacts container">
+    <div class="row">
+        <h2>Lista de contatos</h2>
+
+        <button class="btn btn-primary btn-xs" ng-click="getContacts()">Listar contatos</button>
+
+        <div class="separator" ></div>
+
+        <div class="form-group" ng-show="contacts">
+            <input class="form-control" type="text" ng-model="search.name" placeholder="Pesquisar Contatos">
+        </div>
+
+        <div class="col-sm-6" ng-repeat="contact in contacts | filter:search:strict">
+
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+                    <button class="btn btn-success btn-xs " ng-show="contact.isActive">
+                        <span >Ativo</span>
+                    </button>
+                    <button class="btn btn-danger btn-xs" ng-show="!contact.isActive">
+                        <span>Inativo</span>
+                    </button>
+
+                    <div class="page-heading">Name: {{contact.name}}</div>
+                    <div class="page-heading">Age: {{contact.age}}</div>
+                    <div class="page-heading">Gender:
+                        <!--ng if só mostra a condição -->
+                        <!--o ng-show mostra as 2 condições no html-->
+                        <img ng-show="contact.gender == 'male'" ng-src="img/Boss.png" width="32" height="30"/>
+                        <img ng-show="contact.gender == 'female'" ng-src="img/FBoss.png" width="32" height="30"/>
+
+                        <!--<img ng-show="contact.gender == 'male'" ng-src="{{change(contact.gender)}}" width="32" height="20">{{contact.gender}}<img/>-->
+                    </div>
+                    <div class="page-heading">Phone: {{contact.phone}}</div>
+                    <div class="page-heading">Address: {{contact.address}}</div>
+                    <div class="page-heading">Registred: {{contact.registered | date:'dd/MM/yyyy'}}</div>
+                    Friends:
+                    <div class="page-heading"ng-repeat="friend in contact.friends">
+                        <div class="page-heading">{{friend.name}}</div>
+                    </div>
+                    <!--adicionar moment js-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+<!--<!DOCTYPE>-->
+<!--<html lang="en" html ng-app="CitEventos">-->
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Angular js exemplo</title>-->
+
+<!--&lt;!&ndash;theme css&ndash;&gt;-->
+<!--<link type="text/css" rel="stylesheet" href="css/app.css">-->
+<!--<link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">-->
+<!--<link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">-->
+
+<!--<link type="text/css" rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">-->
+<!--&lt;!&ndash; command / para comentar-->
+<!--importando angular-->
+<!--libs angular&ndash;&gt;-->
+<!--<script src="bower_components/angular/angular.min.js"></script>-->
+<!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
+<!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+
+<!--<script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>-->
+
+<!--<script>-->
+<!--//criando um modulo para app-->
+<!--var app = angular.module("CitEventos", ['angular-loading-bar']);-->
+<!--//criando uma controller-->
+<!--app.controller('MainController',['$scope', '$http', function($scope, $http){-->
+<!--//$scope.meuNome = "Carlos Eduardo";-->
+<!--$scope.status = false;-->
+
+<!--//            $scope.showName = function(nome){-->
+<!--//                $scope.status = !$scope.status;-->
+<!--//                $scope.name = nome;-->
+
+<!--$scope.getContacts = function() {-->
+<!--$scope.contacts = "";-->
+<!--$http.get('https://demo8443940.mockable.io/exercicio1').then(function(response){-->
+<!--$scope.contacts = response.data;-->
+<!--}).catch(function(error){-->
+<!--console.log(error);-->
+<!--});-->
+<!--}-->
+<!--}]);-->
+<!--</script>-->
+
+<!--</head>-->
+<!--<body ng-controller="MainController">-->
+<!--&lt;!&ndash;<input type="text" ng-model="meuNome" />&ndash;&gt;-->
+<!--<button class="btn-group-sm btn-primary" ng-click="showName()">-->
+<!--<span ng-show="status">Mostrar ng-model</span>-->
+<!--<span ng-show="!status">Esconder ng-model</span>-->
+<!--</button>-->
+<!--<p ng-hide="status">{{meuNome}}</p>-->
+
+
+<!--<div class="contacts container">-->
+<!--<div class="row">-->
+<!--<h2>Lista de Contatos</h2>-->
+
+<!--<button class="btn btn-primary btn-xs" ng-click="getContacts()">Listar Contato</button>-->
+
+<!--<div class=""></div>-->
+
+<!--<div class="col-sm-6" ng-repeat="contact in contacts">-->
+<!--<div class="panel panel-default">-->
+<!--<div class="page-heading">{{contact.name}}</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--</body>-->
+<!--</html>-->

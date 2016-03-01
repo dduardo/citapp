@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="CitEventos">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+
+    <title>CIT Eventos</title>
+
+    <!--CSS Bootstrap-->
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
+    <!-- css loading bar-->
+    <link type="text/css" rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+
+    <!--meu css-->
+    <link type="text/css" rel="stylesheet" href="css/app.css">
+
+    <!--Toastr -->
+    <link type="text/css" rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.min.css">
+
+    <!--lib angular-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!--plugins-->
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+
+    <!--Toastr -->
+    <script src="bower_components/angular-toastr/dist/angular-toastr.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
+
+    <!--ui-mask-->
+    <script src="bower_components/angular-ui-mask/dist/mask.min.js"></script>
+
+
+    <!--importando arquivos-->
+    <script src="js/app.js"></script>
+    <script src="js/app.router.js"></script>
+    <!--webservice-->
+    <script src="js/services/eventos.service.js"></script>
+    <!--arq.eventos-->
+    <script src="js/controllers/eventos/listar.controller.js"></script>
+    <script src="js/controllers/eventos/cadastrar.controller.js"></script>
+
+    <script src="js/controllers/login.controller.js"></script>
+
+
+    <!--add componentes-->
+    <!--baixar pelo bower install <name> --save-dev -->
+    <!--adicionar as referencias js e css(se tiver)-->
+    <!--injetar dependencia caso necessario -->
+
+</head>
+
+<body>
+    <!--UI VIEW-->
+    <!--CARREGA AS OUTRAS PAGINAS-->
+    <div class="container" ui-view></div>
+
+</body>
+</html>
