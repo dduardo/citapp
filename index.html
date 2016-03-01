@@ -13,11 +13,14 @@
     <!-- css loading bar-->
     <link type="text/css" rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
 
-    <!--meu css-->
-    <link type="text/css" rel="stylesheet" href="css/app.css">
-
     <!--Toastr -->
     <link type="text/css" rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.min.css">
+
+    <!--picker-->
+    <link type="text/css" rel="stylesheet" href="bower_components/angular-moment-picker/dist/angular-moment-picker.min.css">
+
+    <!--meu css-->
+    <link type="text/css" rel="stylesheet" href="css/app.css">
 
     <!--lib angular-->
     <script src="bower_components/angular/angular.min.js"></script>
@@ -37,30 +40,34 @@
     <!--ui-mask-->
     <script src="bower_components/angular-ui-mask/dist/mask.min.js"></script>
 
+    <!--momentjs-->
+    <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+
+    <!--picker-->
+    <script src="bower_components/angular-moment-picker/dist/angular-moment-picker.min.js"></script>
 
     <!--importando arquivos-->
     <script src="js/app.js"></script>
     <script src="js/app.router.js"></script>
+
     <!--webservice-->
     <script src="js/services/eventos.service.js"></script>
+
     <!--arq.eventos-->
     <script src="js/controllers/eventos/listar.controller.js"></script>
     <script src="js/controllers/eventos/cadastrar.controller.js"></script>
 
     <script src="js/controllers/login.controller.js"></script>
 
-
     <!--add componentes-->
     <!--baixar pelo bower install <name> --save-dev -->
     <!--adicionar as referencias js e css(se tiver)-->
     <!--injetar dependencia caso necessario -->
-
 </head>
 
 <body>
     <!--UI VIEW-->
     <!--CARREGA AS OUTRAS PAGINAS-->
     <div class="container" ui-view></div>
-
 </body>
 </html>

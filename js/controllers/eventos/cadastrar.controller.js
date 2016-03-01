@@ -48,6 +48,8 @@
             });
         };
 
+        $scope.minDate =  moment().format("DD/MM/YYYY");
+        $scope.minHour =  moment().format("hh:mm:ss");
 
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
            if(fromState.name === 'eventos.editar') {

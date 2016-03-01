@@ -7,5 +7,6 @@ var app = angular.module('CitEventos',
         'ui.router',
         'ngCookies',
         'toastr',
-        'ui.mask'
+        'ui.mask',
+        'moment-picker'
     ]);

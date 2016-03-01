@@ -21,19 +21,67 @@
                 </div>
                 <div class="form-group">
                     <label>Data início</label>
-                    <input type="text" class="form-control" required ng-model="evento.start_date" ui-mask="99/99/9999" model-view-value="true">
+                    <input
+                            type="text"
+                            class="form-control"
+                            required
+                            ng-model="evento.start_date"
+                            ui-mask="99/99/9999"
+                            model-view-value="true"
+                            moment-picker="evento.start_date"
+                            format="DD/MM/YYYY"
+                            min-date="minDate"
+                            min-view="month"
+                            max-view="month"
+                            start-view="month">
                 </div>
                 <div class="form-group">
                     <label>Hora início</label>
-                    <input type="text" class="form-control" required ng-model="evento.start_time" ui-mask="99:99:99" model-view-value="true">
+                    <input
+                            type="text"
+                            class="form-control"
+                            required
+                            ng-model="evento.start_time"
+                            ui-mask="99:99:99"
+                            model-view-value="true"
+                            moment-picker="evento.start_time"
+                            format="LTS"
+                            min-date="minHour"
+                            min-view="hour"
+                            max-view="hour"
+                            start-view="hour">
                 </div>
                 <div class="form-group">
                     <label>Data término</label>
-                    <input type="text" class="form-control" required ng-model="evento.end_date" ui-mask="99/99/9999" model-view-value="true">
+                    <input
+                            type="text"
+                            class="form-control"
+                            required
+                            ng-model="evento.end_date"
+                            ui-mask="99/99/9999"
+                            model-view-value="true"
+                            moment-picker="evento.end_date"
+                            format="DD/MM/YYYY"
+                            min-date="evento.start_date"
+                            min-view="month"
+                            max-view="month"
+                            start-view="month">
                 </div>
                 <div class="form-group">
                     <label>Hora término</label>
-                    <input type="text" class="form-control" required ng-model="evento.end_time" ui-mask="99:99:99" model-view-value="true">
+                    <input
+                            type="text"
+                            class="form-control"
+                            required
+                            ng-model="evento.end_time"
+                            ui-mask="99:99:99"
+                            model-view-value="true"
+                            moment-picker="evento.end_time"
+                            format="LTS"
+                            min-date="evento.start_time"
+                            min-view="hour"
+                            max-view="hour"
+                            start-view="hour">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary col-sm-12" ng-click="cadastrarEventos(evento)" ng-show="!edit">Cadastrar evento</button>

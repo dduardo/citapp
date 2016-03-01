@@ -1,7 +1,21 @@
-/**
- * Created by DuardoSantiago on 25/02/16.
- */
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', 'momentPickerProvider', function ($stateProvider, $urlRouterProvider, momentPickerProvider) {
+
+    momentPickerProvider.options({
+        /* Picker properties */
+        locale: 'pt-br',
+        format: 'L LT',
+
+        /* Extra: Views properties */
+        leftArrow: '&larr;',
+        rightArrow: '&larr;',
+        monthsFormat: 'MMM',
+        daysFormat: 'D',
+        hoursFormat: 'HH:[00]',
+        minutesFormat: moment.localeData().longDateFormat('LT').replace(/[aA]/,''),
+        secondsFormat: 'ss',
+        minutesStep: 30,
+        secondStep: 1
+    });
 
     $urlRouterProvider.otherwise(
         function ($injector, $location, $rootScope) {
@@ -10,7 +24,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         });
 
     $stateProvider
-        //login
+    //login
         .state('login', {
             url: '/login',
             controller: 'LoginController',
@@ -47,7 +61,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             templateUrl: 'views/eventos/cadastrar.view.html',
             //serve para carregar a pagina com um medodo inincial
         })
-    }
+},
+/**
+ * Created by DuardoSantiago on 25/02/16.
+ */
     //tudo o que estiver aqui vai ser executado quando houver mudança na app
     //verifica se existe cookie na sessão
 ]).run(['$cookies', 'EventosServices', '$state', '$rootScope', function($cookies, EventosServices, $state, $rootScope) {
